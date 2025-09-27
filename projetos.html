@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OTIS-TRACK — Projetos</title><link rel="stylesheet" href="css/styles.css"/></head>
+<body>
+<header><div class="nav">
+  <div class="brand"><div>OTIS-TRACK</div><div class="elev"></div></div>
+  <nav class="pillnav">
+      <a href="home.html">Home</a> • <a href="index.html">Dashboard</a> • <a href="projetos.html">Projetos</a> • <a href="portal.html?id=BR-5510">Portal do Cliente</a></nav>
+  <div class="search"><input placeholder="Buscar projeto..."/></div>
+</div></header>
+<div class="container">
+  <h2>Projetos</h2>
+  <div class="card">
+    <table class="table"><thead><tr>
+      <th>Projeto</th><th>País</th><th>Cliente</th><th>Etapa</th><th>No prazo</th><th>Tempo de ciclo</th><th>Situação</th>
+    </tr></thead><tbody id="tbody"></tbody></table>
+  </div>
+</div>
+<div class="toast"></div>
+<footer class="footer">© 2025 OTIS-TRACK — MVP · Trabalho de faculdade da FIAP (Challenge 2025)</footer>
+<script src="js/app.js"></script><script>OTApp.renderTable(document.getElementById('tbody'), OTApp.DATA.projects);</script>
+</body></html>
