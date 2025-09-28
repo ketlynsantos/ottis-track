@@ -1,6 +1,6 @@
 function renderKPIs(el, projs) {
     const all = projs.flatMap((p) => p.milestones);
-    const onTime = AppCommon.onTimePct(all);
+    const onTime = AppCommon.onTimeRatio(all);
     const avgLead = Math.round(projs.reduce((a, p) => a + (AppCommon.leadTime(p) || 0), 0) / projs.length);
     const avgCV = projs.reduce((a, p) => a + AppCommon.costVariance(p), 0) / projs.length;
     const avgFPY = projs.reduce((a, p) => a + p.fpy, 0) / projs.length;
@@ -8,7 +8,7 @@ function renderKPIs(el, projs) {
     el.innerHTML = `
         <div class="card kpi">
             <h3>Marcos no prazo</h3>
-            <div class="value">${AppCommon.fmtPct(onTime)}</div>
+            <div class="value">${AppCommon.formatPercent(onTime)}</div>
             <div class="delta">média geral</div>
         </div>
 
@@ -26,7 +26,7 @@ function renderKPIs(el, projs) {
 
         <div class="card kpi">
             <h3>Primeiro passe (FPY)</h3>
-            <div class="value">${AppCommon.fmtPct(avgFPY)}</div>
+            <div class="value">${AppCommon.formatPercent(avgFPY)}</div>
             <div class="delta">sem retrabalho</div>
         </div>
     `;
@@ -34,8 +34,8 @@ function renderKPIs(el, projs) {
 
 // Inicialização do Dashboard
 document.addEventListener('DOMContentLoaded', () => {
-    const kpiContainer = AppCommon.q('#kpis');
-    const tableBody = AppCommon.q('#tbody');
+    const kpiContainer = AppCommon.select('#kpis');
+    const tableBody = AppCommon.select('#tbody');
     const projects = AppData.DATA.projects;
 
     renderKPIs(kpiContainer, projects);

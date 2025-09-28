@@ -4,19 +4,19 @@ function getProject(id) {
 
 function renderProject(p) {
     if (!p) {
-        AppCommon.q('#project').innerHTML = "<div class='card'>Projeto não encontrado.</div>";
+        AppCommon.select('#project').innerHTML = "<div class='card'>Projeto não encontrado.</div>";
         return;
     }
 
-    AppCommon.q('#p-title').textContent = `${p.client} — ${p.city}/${p.country} (${p.id})`;
-    AppCommon.q('#p-stage').textContent = p.stage;
-    AppCommon.q('#p-stage').className = 'badge ' + AppCommon.statusBadge(p.stage);
-    AppCommon.q('#p-ot').textContent = AppCommon.fmtPct(AppCommon.onTimePct(p.milestones));
-    AppCommon.q('#p-lt').textContent = (AppCommon.leadTime(p) || '—') + ' dias';
-    AppCommon.q('#p-cv').textContent = (AppCommon.costVariance(p) * 100).toFixed(1) + '%';
-    AppCommon.q('#p-fpy').textContent = AppCommon.fmtPct(p.fpy);
+    AppCommon.select('#p-title').textContent = `${p.client} — ${p.city}/${p.country} (${p.id})`;
+    AppCommon.select('#p-stage').textContent = p.stage;
+    AppCommon.select('#p-stage').className = 'badge ' + AppCommon.statusBadge(p.stage);
+    AppCommon.select('#p-ot').textContent = AppCommon.formatPercent(AppCommon.onTimeRatio(p.milestones));
+    AppCommon.select('#p-lt').textContent = (AppCommon.leadTime(p) || '—') + ' dias';
+    AppCommon.select('#p-cv').textContent = (AppCommon.costVariance(p) * 100).toFixed(1) + '%';
+    AppCommon.select('#p-fpy').textContent = AppCommon.formatPercent(p.fpy);
 
-    const tl = AppCommon.q('#timeline');
+    const tl = AppCommon.select('#timeline');
     tl.innerHTML = p.milestones
         .map((m) => {
             let cls = 'item';
@@ -35,13 +35,13 @@ function renderProject(p) {
         })
         .join('');
 
-    AppCommon.q('#cost-line').textContent = `Orçado: ${p.budget} • Realizado: ${p.actualCost}`;
+    AppCommon.select('#cost-line').textContent = `Orçado: ${p.budget} • Realizado: ${p.actualCost}`;
     const delta = Math.round(((p.actualCost - p.budget) / p.budget) * 1000) / 10;
-    AppCommon.q('#cost-delta').textContent = `Δ ${delta}%`;
+    AppCommon.select('#cost-delta').textContent = `Δ ${delta}%`;
     const fill = Math.min(100, Math.max(2, Math.round((p.actualCost / p.budget) * 100)));
-    AppCommon.q('#cost-bar .fill').style.width = fill + '%';
+    AppCommon.select('#cost-bar .fill').style.width = fill + '%';
 
-    const ql = AppCommon.q('#quality');
+    const ql = AppCommon.select('#quality');
     ql.innerHTML = p.quality.length
         ? p.quality
               .map(
@@ -61,33 +61,33 @@ function renderProject(p) {
 }
 
 function openModal() {
-    AppCommon.q('#nc-dialog').showModal();
+    AppCommon.select('#nc-dialog').showModal();
 }
 
 function closeModal() {
-    AppCommon.q('#nc-dialog').close();
+    AppCommon.select('#nc-dialog').close();
     showToast('Registro salvo');
 }
 
 function showToast(msg) {
-    const t = AppCommon.q('.toast');
+    const t = AppCommon.select('.toast');
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2000);
 }
 
 function tabTo(n) {
-    AppCommon.qa('.tab').forEach((e) => e.classList.remove('active'));
-    AppCommon.qa('.tabpanel').forEach((e) => (e.style.display = 'none'));
-    AppCommon.q(`[data-tab='${n}']`).classList.add('active');
-    AppCommon.q(`#panel-${n}`).style.display = 'block';
+    AppCommon.selectAll('.tab').forEach((e) => e.classList.remove('active'));
+    AppCommon.selectAll('.tabpanel').forEach((e) => (e.style.display = 'none'));
+    AppCommon.select(`[data-tab='${n}']`).classList.add('active');
+    AppCommon.select(`#panel-${n}`).style.display = 'block';
 }
 
 function renderPortal(p) {
-    q('#portal-title').textContent = `${p.client} — ${p.city}/${p.country}`;
+    AppCommon.select('#portal-title').textContent = `${p.client} — ${p.city}/${p.country}`;
     const idx =
-        STEPS.findIndex((s) => s.toLowerCase().includes(p.stage.toLowerCase().slice(0, 4))) || 0;
-    q('#steps').innerHTML = STEPS.map(
+        AppData.STEPS.findIndex((s) => s.toLowerCase().includes(p.stage.toLowerCase().slice(0, 4))) || 0;
+    AppCommon.select('#steps').innerHTML = STEPS.map(
         (s, i) => `
             <div class="step ${i <= idx ? 'done' : ''}">
                 <div class="dot"></div>
@@ -95,7 +95,7 @@ function renderPortal(p) {
             </div>
         `)
         .join('');
-    q('#fb-form').addEventListener('submit', (e) => {
+    AppCommon.select('#fb-form').addEventListener('submit', (e) => {
         e.preventDefault();
         showToast('Feedback enviado. Obrigado!');
         e.target.reset();

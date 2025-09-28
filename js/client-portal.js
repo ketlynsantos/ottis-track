@@ -30,9 +30,9 @@ function tagFor(n) {
 
 function renderFeedbackDashboard() {
     // Toolbar
-    const selCountry = AppCommon.q('#fb-country');
-    const selProject = AppCommon.q('#fb-project');
-    const selPeriod = AppCommon.q('#fb-period');
+    const selCountry = AppCommon.select('#fb-country');
+    const selProject = AppCommon.select('#fb-project');
+    const selPeriod = AppCommon.select('#fb-period');
 
     // Build filters
     const countries = [...new Set(AppData.FEEDBACK.map((f) => f.country))].sort();
@@ -61,12 +61,12 @@ function renderFeedbackDashboard() {
         }
 
         // KPIs
-        AppCommon.q('#kpi-nps .val').textContent = npsScore(rows) + '%';
-        AppCommon.q('#kpi-csat .val').textContent = avgCsat(rows);
-        AppCommon.q('#kpi-total .val').textContent = rows.length;
+        AppCommon.select('#kpi-nps .val').textContent = npsScore(rows) + '%';
+        AppCommon.select('#kpi-csat .val').textContent = avgCsat(rows);
+        AppCommon.select('#kpi-total .val').textContent = rows.length;
         const pro = rows.filter((r) => r.nps >= 9).length;
         const det = rows.filter((r) => r.nps <= 6).length;
-        AppCommon.q('#kpi-split .val').textContent = `${pro}↑ / ${det}↓`;
+        AppCommon.select('#kpi-split .val').textContent = `${pro}↑ / ${det}↓`;
 
         // Bars
         const d = dist0to10(rows);
@@ -80,7 +80,7 @@ function renderFeedbackDashboard() {
                 return `<div class='bar' data-t='${t}' title='${i}: ${v}' style='height:${h}%' ></div>`;
             })
             .join('');
-        AppCommon.q('#bar-container').innerHTML = bars;
+        AppCommon.select('#bar-container').innerHTML = bars;
 
         // Comments
         const list = rows
@@ -103,7 +103,7 @@ function renderFeedbackDashboard() {
                 `;
             })
             .join('');
-        AppCommon.q('#comments').innerHTML = list || '<div class="card">Sem feedbacks no período.</div>';
+        AppCommon.select('#comments').innerHTML = list || '<div class="card">Sem feedbacks no período.</div>';
     }
     selCountry.onchange = apply;
     selProject.onchange = apply;
