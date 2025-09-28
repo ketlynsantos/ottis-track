@@ -17,8 +17,7 @@
   --info: #3b82f6;
   --warn: #f59e0b;
   --danger: #ef4444;
-  --shadow: 0 1px 2px rgba(2, 6, 23, 0.05),
-    0 12px 28px -14px rgba(2, 6, 23, 0.14);
+  --shadow: 0 1px 2px rgba(2, 6, 23, 0.05), 0 12px 28px -14px rgba(2, 6, 23, 0.14);
 }
 
 * {
@@ -251,7 +250,7 @@ h1 {
 }
 
 .timeline:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 8px;
   top: 0;
@@ -267,7 +266,7 @@ h1 {
 }
 
 .timeline .item:before {
-  content: "";
+  content: '';
   position: absolute;
   left: -2px;
   top: 6px;
@@ -619,7 +618,6 @@ body.portal form button {
   margin: 0;
 } /* garante que o gap controle o espaçamento */
 
-
 .two-col aside > .card + .card {
   margin-top: 0;
 } /* redundância defensiva */
@@ -632,7 +630,7 @@ body.portal form button {
 
 .tab {
   margin-bottom: -1px;
-} 
+}
 
 /* encosta nas abas */
 .tabpanel {
@@ -641,7 +639,7 @@ body.portal form button {
 
 .tabs + .tabpanel {
   margin-top: 2px;
-} 
+}
 
 /* aproxima o card */
 .tabs + .tabpanel .card {
@@ -823,17 +821,17 @@ body.portal form button {
   min-height: 4px;
 }
 
-.bar[data-t="det"] {
+.bar[data-t='det'] {
   background: rgba(239, 68, 68, 0.18);
   border-color: #fecaca;
 }
 
-.bar[data-t="neu"] {
+.bar[data-t='neu'] {
   background: #e5ecfa;
   border-color: #d6e4ff;
 }
 
-.bar[data-t="pro"] {
+.bar[data-t='pro'] {
   background: rgba(16, 185, 129, 0.18);
   border-color: #a7f3d0;
 }

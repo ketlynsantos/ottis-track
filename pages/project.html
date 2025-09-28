@@ -11,7 +11,7 @@
     <header>
       <div class="nav">
         <a class="brand" href="/index.html">
-          <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track">
+          <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
         </a>
         <nav class="pillnav">
           <a href="/index.html">Home</a>
@@ -48,41 +48,15 @@
             </div>
           </div>
           <div class="tabs" role="tablist">
-            <button
-              class="tab active"
-              data-tab="geral"
-              onclick="OTApp.tabTo('geral')"
-            >
+            <button class="tab active" data-tab="geral" onclick="OTApp.tabTo('geral')">
               Visão Geral
             </button>
-            <button
-              class="tab"
-              data-tab="marcos"
-              onclick="OTApp.tabTo('marcos')"
-            >
-              Marcos
-            </button>
-            <button
-              class="tab"
-              data-tab="custos"
-              onclick="OTApp.tabTo('custos')"
-            >
-              Custos
-            </button>
-            <button
-              class="tab"
-              data-tab="qualidade"
-              onclick="OTApp.tabTo('qualidade')"
-            >
+            <button class="tab" data-tab="marcos" onclick="OTApp.tabTo('marcos')">Marcos</button>
+            <button class="tab" data-tab="custos" onclick="OTApp.tabTo('custos')">Custos</button>
+            <button class="tab" data-tab="qualidade" onclick="OTApp.tabTo('qualidade')">
               Qualidade
             </button>
-            <button
-              class="tab"
-              data-tab="anexos"
-              onclick="OTApp.tabTo('anexos')"
-            >
-              Anexos
-            </button>
+            <button class="tab" data-tab="anexos" onclick="OTApp.tabTo('anexos')">Anexos</button>
           </div>
           <div id="panel-geral" class="tabpanel" style="display: block">
             <div class="card">
@@ -93,11 +67,7 @@
           <div id="panel-marcos" class="tabpanel" style="display: none">
             <div class="card">
               <strong>Linha do tempo</strong>
-              <div
-                id="timeline"
-                class="timeline"
-                style="margin-top: 12px"
-              ></div>
+              <div id="timeline" class="timeline" style="margin-top: 12px"></div>
             </div>
           </div>
           <div id="panel-custos" class="tabpanel" style="display: none">
@@ -113,9 +83,7 @@
           <div id="panel-qualidade" class="tabpanel" style="display: none">
             <div id="quality" class="grid"></div>
             <div style="margin-top: 8px">
-              <button class="btn primary" onclick="OTApp.openModal()">
-                + Nova NC
-              </button>
+              <button class="btn primary" onclick="OTApp.openModal()">+ Nova NC</button>
             </div>
           </div>
           <div id="panel-anexos" class="tabpanel" style="display: none">
@@ -127,8 +95,8 @@
             <strong>Filtros rápidos</strong>
             <div class="filters">
               <div class="pill">
-                <label class="small">País</label
-                ><select>
+                <label class="small">País</label>
+                <select>
                   <option>Todos</option>
                   <option>Brasil</option>
                   <option>Chile</option>
@@ -136,8 +104,8 @@
                 </select>
               </div>
               <div class="pill">
-                <label class="small">Etapa</label
-                ><select>
+                <label class="small">Etapa</label>
+                <select>
                   <option>Todas</option>
                   <option>Fabricação</option>
                   <option>Instalação</option>
@@ -160,40 +128,30 @@
         <h3 id="nc-title">Nova Não Conformidade</h3>
       </div>
       <div class="modal-body">
-        <form
-          id="nc-form"
-          onsubmit="event.preventDefault(); OTApp.closeModal();"
-        >
+        <form id="nc-form" onsubmit="event.preventDefault(); OTApp.closeModal();">
+          <div class="field"><label>Título*</label><input required type="text" /></div>
           <div class="field">
-            <label>Título*</label><input required type="text" />
-          </div>
-          <div class="field">
-            <label>Tipo</label
-            ><select>
+            <label>Tipo</label>
+            <select>
               <option>Processo</option>
               <option>Material</option>
               <option>Execução</option>
             </select>
           </div>
           <div class="field">
-            <label>Gravidade</label
-            ><select>
+            <label>Gravidade</label>
+            <select>
               <option>Baixa</option>
               <option>Média</option>
               <option>Alta</option>
             </select>
           </div>
           <div class="field"><label>Descrição</label><textarea></textarea></div>
-          <div class="field">
-            <label>Responsável</label><input type="text" />
-          </div>
-          <div class="field">
-            <label>Data limite</label><input type="date" />
-          </div>
+          <div class="field"><label>Responsável</label><input type="text" /></div>
+          <div class="field"><label>Data limite</label><input type="date" /></div>
           <div class="actions">
-            <button class="btn" type="button" onclick="OTApp.closeModal()">
-              Cancelar</button
-            ><button class="btn primary" type="submit">Salvar</button>
+            <button class="btn" type="button" onclick="OTApp.closeModal()">Cancelar</button>
+            <button class="btn primary" type="submit">Salvar</button>
           </div>
         </form>
       </div>
@@ -205,12 +163,12 @@
     <script src="/js/app.js"></script>
     <script>
       const params = new URLSearchParams(location.search);
-      const id = params.get("id") || "BR-5510";
+      const id = params.get('id') || 'BR-5510';
       const p = OTApp.getProject(id);
       OTApp.renderProject(p);
-      const pl = document.getElementById("portal-link");
+      const pl = document.getElementById('portal-link');
       if (p) {
-        pl.href = "client-portal.html?id=" + encodeURIComponent(p.id);
+        pl.href = 'client-portal.html?id=' + encodeURIComponent(p.id);
       }
     </script>
   </body>
