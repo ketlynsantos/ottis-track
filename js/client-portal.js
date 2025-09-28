@@ -115,7 +115,22 @@ function renderFeedbackDashboard() {
     apply();
 }
 
+function renderNpsDistributionNumber() {
+    const container = AppCommon.select('#number-nps');
+
+    if (!container) return
+
+    container.innerHTML = '';
+
+    for (let i = 0; i <= 10; i++) {
+        const span = document.createElement('span');
+        span.textContent = i;
+        container.appendChild(span);
+    }
+}
+
 // Inicialização do Portal do Cliente
 document.addEventListener('DOMContentLoaded', () => {
+    renderNpsDistributionNumber();
     renderFeedbackDashboard();
 });

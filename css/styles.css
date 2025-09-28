@@ -837,11 +837,13 @@ body.portal form button {
 }
 
 .bar-x {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
+  display: grid;
+  grid-template-columns: repeat(11, 66.8px);
+  font-size: 10px;
   color: var(--muted);
   margin-top: 6px;
+  gap: 6px;
+  text-align: center;
 }
 
 .tag {
