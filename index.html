@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OTIS-TRACK — Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <title>OTIS-TRACK — Home</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <header>
@@ -15,68 +15,56 @@
           <div class="elev"></div>
         </div>
         <nav class="pillnav">
-          <a href="home.html">Home</a>
-          <a href="index.html">Dashboard</a>
-          <a href="projetos.html">Projetos</a>
-          <a href="portal.html?id=BR-5510">Portal do Cliente</a>
+          <a href="#">Home</a>
+          <a href="/pages/dashboard.html">Dashboard</a>
+          <a href="/pages/projects.html">Projetos</a>
+          <a href="/pages/client-portal.html?id=BR-5510">Portal do Cliente</a>
         </nav>
-        <div class="search"><input placeholder="Buscar projeto..." /></div>
+        <div class="search"><input placeholder="Buscar..." /></div>
       </div>
     </header>
-    <div class="container">
-      <div class="filters">
-        <div class="pill">
-          <label class="small">País</label
-          ><select>
-            <option>Todos</option>
-            <option>Brasil</option>
-            <option>Chile</option>
-            <option>Argentina</option>
-          </select>
+
+    <section class="home-hero">
+      <div class="hero-card">
+        <h1 class="hero-title">OTIS-TRACK</h1>
+        <p class="hero-sub">
+          Plataforma para gestão de instalações de elevadores na América Latina.
+        </p>
+        <div class="vprops">
+          <div class="item">
+            <div class="dot"></div>
+            <div>
+              <strong>Previsibilidade e controle</strong> de ponta a ponta.
+            </div>
+          </div>
+          <div class="item">
+            <div class="dot"></div>
+            <div>
+              <strong>Menos atrasos e retrabalho</strong> com processos e
+              visibilidade unificados.
+            </div>
+          </div>
+          <div class="item">
+            <div class="dot"></div>
+            <div>
+              <strong>Transparência para o cliente</strong> e melhoria contínua
+              via feedback/NPS.
+            </div>
+          </div>
         </div>
-        <div class="pill">
-          <label class="small">Etapa</label
-          ><select>
-            <option>Todas</option>
-            <option>Fabricação</option>
-            <option>Instalação</option>
-            <option>Testes</option>
-          </select>
+        <div class="hero-cta">
+          <a class="btn primary" href="/pages/dashboard.html">Ir para o Dashboard</a>
+          <a class="btn" href="/pages/projects.html">Ver Projetos</a>
+          <a class="btn" href="/pages/client-portal.html?id=BR-5510">Portal do Cliente</a>
         </div>
-        <div class="pill">
-          <label class="small">Período</label
-          ><select>
-            <option>Últimos 90 dias</option>
-            <option>Últimos 30 dias</option>
-          </select>
+        <div class="hero-note">
+          Protótipo acadêmico — Trabalho de faculdade da FIAP (Challenge 2025).
         </div>
       </div>
-      <div class="kpi-strip" id="kpis"></div>
-      <div class="card table-wrap">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Projeto</th>
-              <th>País</th>
-              <th>Cliente</th>
-              <th>Etapa</th>
-              <th>No prazo</th>
-              <th>Tempo de ciclo</th>
-              <th>Situação</th>
-            </tr>
-          </thead>
-          <tbody id="tbody"></tbody>
-        </table>
-      </div>
-    </div>
-    <div class="toast"></div>
+    </section>
+
     <footer class="footer">
       © 2025 OTIS-TRACK — MVP · Trabalho de faculdade da FIAP (Challenge 2025)
     </footer>
-    <script src="js/app.js"></script>
-    <script>
-      OTApp.renderKPIs(document.getElementById("kpis"), OTApp.DATA.projects);
-      OTApp.renderTable(document.getElementById("tbody"), OTApp.DATA.projects);
-    </script>
   </body>
 </html>
