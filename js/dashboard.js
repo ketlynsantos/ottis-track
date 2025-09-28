@@ -1,11 +1,14 @@
-function renderKPIs(el, projs) {
-    const all = projs.flatMap((p) => p.milestones);
-    const onTime = AppCommon.onTimeRatio(all);
-    const avgLead = Math.round(projs.reduce((a, p) => a + (AppCommon.leadTime(p) || 0), 0) / projs.length);
-    const avgCV = projs.reduce((a, p) => a + AppCommon.costVariance(p), 0) / projs.length;
-    const avgFPY = projs.reduce((a, p) => a + p.fpy, 0) / projs.length;
+function renderKPIs(container, projects) {
+    const allMilestones = projects.flatMap((p) => p.milestones);
+    const onTime = AppCommon.onTimeRatio(allMilestones);
+    const avgLeadTime = Math.round(
+        projects.reduce((sum, p) => sum + (AppCommon.leadTime(p) || 0), 0) / projects.length
+    );
+    const avgCostVariance =
+        projects.reduce((sum, p) => sum + AppCommon.costVariance(p), 0) / projects.length;
+    const avgFPY = projects.reduce((sum, p) => sum + p.fpy, 0) / projects.length;
 
-    el.innerHTML = `
+    container.innerHTML = `
         <div class="card kpi">
             <h3>Marcos no prazo</h3>
             <div class="value">${AppCommon.formatPercent(onTime)}</div>
@@ -14,13 +17,13 @@ function renderKPIs(el, projs) {
 
         <div class="card kpi">
             <h3>Lead Time Médio</h3>
-            <div class="value">${avgLead} dias</div>
+            <div class="value">${avgLeadTime} dias</div>
             <div class="delta">pedido → entrega</div>
         </div>
 
         <div class="card kpi">
             <h3>Variação de custo</h3>
-            <div class="value">${(avgCV * 100).toFixed(1)}%</div>
+            <div class="value">${(avgCostVariance * 100).toFixed(1)}%</div>
             <div class="delta">orçado × realizado</div>
         </div>
 
