@@ -907,7 +907,3 @@ body.portal form button {
   display: grid;
   gap: 16px;
 }
-
-@media (max-width: 9999px) {
-  /* keep fixed layout overall */
-}
