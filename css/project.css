@@ -1,0 +1,86 @@
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.tab.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.tabpanel {
+  margin-top: 12px;
+}
+
+.statbar {
+  background: #e5ecfa;
+  border-radius: 12px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.statbar .fill {
+  background: var(--primary);
+  height: 100%;
+  width: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-body .field {
+  margin-bottom: 10px;
+}
+
+.modal-body label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+  width: 100%;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.modal-body textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.modal-body .actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
