@@ -453,27 +453,55 @@ dialog {
   max-width: 720px;
   width: 720px;
   background: #fff;
+  padding: 20px;
 }
 
-dialog .modal__header {
-  padding: 16px 16px 0 16px;
+dialog:not([open]) {
+  display: none;
 }
 
-dialog .modal__body {
-  padding: 0 16px 16px 16px;
+dialog,
+.modal__body form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-dialog form {
-  padding: 0 16px 16px 16px;
+.modal__title {
+  margin: 0;
+}
+
+.modal__label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.modal__field input,
+.modal__field select,
+.modal__field textarea {
+  width: 100%;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.modal__field select {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.modal__field textarea {
+  resize: vertical;
+  min-height: 64px;
 }
 
 dialog .modal__actions {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  padding: 12px 16px;
-  border-top: 1px dashed var(--border);
-  background: #fafbff;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }

@@ -35,39 +35,3 @@
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
 }
-
-.modal__header h3 {
-  margin: 0;
-}
-
-.modal__field {
-  margin-bottom: 10px;
-}
-
-.modal__label {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.modal__field input,
-.modal__field select,
-.modal__field textarea {
-  width: 100%;
-  height: 32px;
-  padding: 6px 8px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-.modal__field textarea {
-  resize: vertical;
-  min-height: 64px;
-}
-
-.modal__actions {
-  display: flex;
-  gap: 6px;
-  justify-content: flex-end;
-}
