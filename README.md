@@ -1,4 +1,6 @@
-![OTIS-TRACK Logo](/img/logo-readme.png)
+![OTIS-TRACK Logo](/img/logo-readme.png) {
+  style="display: block; margin: 0 auto"
+}
 
 # OTIS-TRACK
 
