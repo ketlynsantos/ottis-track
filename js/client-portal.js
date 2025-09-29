@@ -64,6 +64,8 @@ function renderFeedbackDashboard() {
             );
         }
 
+        window.FILTERED_FEEDBACKS = feedbacks
+
         // KPIs
         AppCommon.select('#kpi-nps .kpis__value').textContent = calcNpsPercent(feedbacks) + '%';
         AppCommon.select('#kpi-csat .kpis__value').textContent = avgCsatScore(feedbacks);
@@ -144,38 +146,44 @@ function renderNpsDistributionNumber() {
     }
 }
 
-function rowsToCSV(rows) {
-    const header = ['date', 'projectId', 'project', 'country', 'city', 'nps', 'csat', 'comment'];
+function rowsToCSV(feedbacks) {
+    const header = ['Data', 'ID', 'Nome do Projeto', 'País', 'Cidade', 'NPS', 'CSAT', 'Comentário'];
     const esc = (v) => '"' + String(v).replace(/"/g, '""') + '"';
     const lines = [header.join(',')].concat(
-        rows.map((r) =>
-            [r.date, r.projectId, r.project, r.country, r.city, r.nps, r.csat, r.comment]
+        feedbacks.map((feedback) =>
+            [feedback.date, feedback.projectId, feedback.project, feedback.country, feedback.city, feedback.nps, feedback.csat, feedback.comment]
                 .map(esc)
                 .join(',')
         )
     );
+
     return lines.join('\n');
 }
+
 function downloadCSV(content, filename) {
     const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
+
     a.href = url;
     a.download = filename;
     document.body.appendChild(a);
     a.click();
+
     setTimeout(() => {
         URL.revokeObjectURL(url);
         a.remove();
     }, 0);
 }
+
 function exportFeedbackCSV() {
     const rows =
-        window.FB_LAST && window.FB_LAST.length
-            ? window.FB_LAST
+        window.FILTERED_FEEDBACKS && window.FILTERED_FEEDBACKS.length
+            ? window.FILTERED_FEEDBACKS
             : typeof AppData.FEEDBACK !== 'undefined'
             ? AppData.FEEDBACK
             : [];
+
     if (!rows.length) {
         alert('Sem dados para exportar.');
         return;
@@ -183,6 +191,10 @@ function exportFeedbackCSV() {
     const csv = rowsToCSV(rows);
     downloadCSV(csv, 'feedbacks_filtrados.csv');
 }
+
+AppCommon.select('#fb-export').addEventListener('click', () => {
+    exportFeedbackCSV();
+})
 
 // Inicialização do Portal do Cliente
 document.addEventListener('DOMContentLoaded', () => {
