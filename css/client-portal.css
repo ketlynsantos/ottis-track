@@ -1,3 +1,9 @@
+.feedback__export-csv {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
 .kpis {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
