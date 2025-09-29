@@ -1,4 +1,4 @@
-![OTIS-TRACK Logo](/img/logo-readme.png.png)
+![OTIS-TRACK Logo](/img/logo-readme.png)
 
 # OTIS-TRACK
 
