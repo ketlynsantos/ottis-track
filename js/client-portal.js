@@ -1,6 +1,7 @@
 function calcNpsPercent(feedbacks) {
     if (!feedbacks.length) return 0;
-    let promoters = 0, detractors = 0;
+    let promoters = 0,
+        detractors = 0;
     let lengthFeedbacks = feedbacks.length;
 
     feedbacks.forEach((item) => {
@@ -132,7 +133,7 @@ function renderFeedbackDashboard() {
 function renderNpsDistributionNumber() {
     const container = AppCommon.select('#number-nps');
 
-    if (!container) return
+    if (!container) return;
 
     container.innerHTML = '';
 
@@ -141,6 +142,46 @@ function renderNpsDistributionNumber() {
         span.textContent = i;
         container.appendChild(span);
     }
+}
+
+function rowsToCSV(rows) {
+    const header = ['date', 'projectId', 'project', 'country', 'city', 'nps', 'csat', 'comment'];
+    const esc = (v) => '"' + String(v).replace(/"/g, '""') + '"';
+    const lines = [header.join(',')].concat(
+        rows.map((r) =>
+            [r.date, r.projectId, r.project, r.country, r.city, r.nps, r.csat, r.comment]
+                .map(esc)
+                .join(',')
+        )
+    );
+    return lines.join('\n');
+}
+function downloadCSV(content, filename) {
+    const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+        a.remove();
+    }, 0);
+}
+function exportFeedbackCSV() {
+    const rows =
+        window.FB_LAST && window.FB_LAST.length
+            ? window.FB_LAST
+            : typeof AppData.FEEDBACK !== 'undefined'
+            ? AppData.FEEDBACK
+            : [];
+    if (!rows.length) {
+        alert('Sem dados para exportar.');
+        return;
+    }
+    const csv = rowsToCSV(rows);
+    downloadCSV(csv, 'feedbacks_filtrados.csv');
 }
 
 // Inicialização do Portal do Cliente

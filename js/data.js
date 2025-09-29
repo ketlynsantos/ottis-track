@@ -115,10 +115,10 @@ const FEEDBACK = [
         project: 'Torre Atlântica',
         country: 'Brasil',
         city: 'São Paulo',
-        nps: 9,
+        nps: 10,
         csat: 5,
-        date: '2025-08-19',
-        comment: 'Elevador ficou lindo, prazo ok.'
+        date: '2025-08-22',
+        comment: 'Equipe excelente, instalação rápida e sem imprevistos.'
     },
     {
         id: 'fb2',
@@ -126,10 +126,10 @@ const FEEDBACK = [
         project: 'Torre Atlântica',
         country: 'Brasil',
         city: 'São Paulo',
-        nps: 4,
-        csat: 3,
-        date: '2025-08-10',
-        comment: 'Comunicação ok, aguardando entrega.'
+        nps: 9,
+        csat: 5,
+        date: '2025-08-19',
+        comment: 'Elevador ficou lindo, prazo cumprido.'
     },
     {
         id: 'fb3',
@@ -137,10 +137,10 @@ const FEEDBACK = [
         project: 'Edifício Andes',
         country: 'Chile',
         city: 'Santiago',
-        nps: 2,
-        csat: 2,
-        date: '2025-08-05',
-        comment: 'Atraso na instalação.'
+        nps: 9,
+        csat: 5,
+        date: '2025-08-21',
+        comment: 'Ótimo atendimento e comunicação clara.'
     },
     {
         id: 'fb4',
@@ -148,39 +148,80 @@ const FEEDBACK = [
         project: 'Puerto Norte',
         country: 'Argentina',
         city: 'Rosario',
-        nps: 10,
-        csat: 5,
-        date: '2025-08-21',
-        comment: 'Equipe muito atenciosa. Instalação rápida.'
+        nps: 8,
+        csat: 4,
+        date: '2025-08-20',
+        comment: 'Tudo dentro do esperado, equipe atenciosa.'
     },
     {
         id: 'fb5',
-        projectId: 'CL-3421',
-        project: 'Edifício Andes',
-        country: 'Chile',
-        city: 'Santiago',
-        nps: 7,
-        csat: 4,
-        date: '2025-08-18',
-        comment: 'Tudo dentro do esperado.'
-    },
-    {
-        id: 'fb6',
         projectId: 'AR-1207',
         project: 'Puerto Norte',
         country: 'Argentina',
         city: 'Rosario',
-        nps: 6,
-        csat: 3,
+        nps: 9,
+        csat: 5,
+        date: '2025-08-18',
+        comment: 'Instalação rápida e organização impecável.'
+    },
+    {
+        id: 'fb6',
+        projectId: 'BR-5510',
+        project: 'Torre Atlântica',
+        country: 'Brasil',
+        city: 'São Paulo',
+        nps: 7,
+        csat: 4,
+        date: '2025-08-17',
+        comment: 'Pequenos ajustes, mas tudo resolvido rapidamente.'
+    },
+    {
+        id: 'fb7',
+        projectId: 'CL-3421',
+        project: 'Edifício Andes',
+        country: 'Chile',
+        city: 'Santiago',
+        nps: 10,
+        csat: 5,
+        date: '2025-08-16',
+        comment: 'Acima das expectativas, obra muito bem conduzida.'
+    },
+    {
+        id: 'fb8',
+        projectId: 'AR-1207',
+        project: 'Puerto Norte',
+        country: 'Argentina',
+        city: 'Rosario',
+        nps: 9,
+        csat: 5,
         date: '2025-08-15',
-        comment: 'Pequenos ajustes, mas resolvido.'
+        comment: 'Entrega no prazo e excelente qualidade.'
+    },
+    {
+        id: 'fb9',
+        projectId: 'CL-3421',
+        project: 'Edifício Andes',
+        country: 'Chile',
+        city: 'Santiago',
+        nps: 8,
+        csat: 4,
+        date: '2025-08-13',
+        comment: 'Boa experiência geral, equipe prestativa.'
     }
 ];
 
 const STEPS = ['Pedido', 'Fabricação', 'Entrega', 'Instalação', 'Testes', 'Handover'];
 
+const TARGETS = {
+    onTime: 0.85,        // 85%
+    leadTime: 60,        // 60 dias
+    costVar: 0.02,       // 2%
+    fpy: 0.95            // 95%
+};
+
 window.AppData = {
     DATA,
     FEEDBACK,
-    STEPS
+    STEPS,
+    TARGETS
 };

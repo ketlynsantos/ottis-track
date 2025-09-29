@@ -1,11 +1,4 @@
 function renderKPIs(container, projects) {
-    const TARGETS = {
-        onTime: 0.85,        // 85%
-        leadTime: 60,        // 60 dias
-        costVar: 0.02,       // 2%
-        fpy: 0.95            // 95%
-    };
-
     const allMilestones = projects.flatMap((p) => p.milestones);
     const onTime = AppCommon.onTimeRatio(allMilestones);
     const avgLeadTime = Math.round(
@@ -26,7 +19,7 @@ function renderKPIs(container, projects) {
                 >i</span>
             </h3>
             <div class="kpi__value">${AppCommon.formatPercent(onTime)}</div>
-            <div class="kpi__goal">Meta: ${AppCommon.formatPercent(TARGETS.onTime)} ou mais</div>
+            <div class="kpi__goal">Meta: ${AppCommon.formatPercent(AppData.TARGETS.onTime)} ou mais</div>
             <div class="kpi__delta">média geral</div>
         </div>
 
@@ -40,7 +33,7 @@ function renderKPIs(container, projects) {
                 >i</span>
             </h3>
             <div class="kpi__value">${avgLeadTime} dias</div>
-            <div class="kpi__goal">Meta: ${TARGETS.leadTime} dias ou menos</div>
+            <div class="kpi__goal">Meta: ${AppData.TARGETS.leadTime} dias ou menos</div>
             <div class="kpi__delta">pedido → entrega</div>
         </div>
 
@@ -54,7 +47,7 @@ function renderKPIs(container, projects) {
                 >i</span>
             </h3>
             <div class="kpi__value">${(avgCostVariance * 100).toFixed(1)}%</div>
-            <div class="kpi__goal">Meta: ${(TARGETS.costVar * 100).toFixed(1)}% ou menos</div>
+            <div class="kpi__goal">Meta: ${(AppData.TARGETS.costVar * 100).toFixed(1)}% ou menos</div>
             <div class="kpi__delta">orçado × realizado</div>
         </div>
 
@@ -68,7 +61,7 @@ function renderKPIs(container, projects) {
                 >i</span>
             </h3>
             <div class="kpi__value">${AppCommon.formatPercent(avgFPY)}</div>
-            <div class="kpi__goal">Meta: ${AppCommon.formatPercent(TARGETS.fpy)} ou mais</div>
+            <div class="kpi__goal">Meta: ${AppCommon.formatPercent(AppData.TARGETS.fpy)} ou mais</div>
             <div class="kpi__delta">sem retrabalho</div>
         </div>
     `;

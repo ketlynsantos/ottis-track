@@ -86,5 +86,7 @@ window.AppCommon = {
     leadTime,
     costVariance,
     statusBadge,
-    renderTable
+    renderTable,
+    daysBetween,
+    scheduleStatus
 };
