@@ -43,8 +43,7 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid #e7f0ff;
-  outline-offset: 2px;
+  outline: 1px solid #e7f0ff;
 }
 
 /* HEADER (fixed width & centered) */
