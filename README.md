@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/img/logo-readme.png" alt="OTIS-TRACK Logo" width="100%"/>
+  <img src="img/logo-readme.png" alt="OTIS-TRACK Logo" width="100%"/>
 </p>
 
 # OTIS-TRACK
