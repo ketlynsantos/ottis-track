@@ -77,9 +77,9 @@ function showToast(msg) {
 }
 
 function tabTo(n) {
-    AppCommon.selectAll('.tab').forEach((e) => e.classList.remove('active'));
+    AppCommon.selectAll('.tab').forEach((e) => e.classList.remove('tab--active'));
     AppCommon.selectAll('.tabpanel').forEach((e) => (e.style.display = 'none'));
-    AppCommon.select(`[data-tab='${n}']`).classList.add('active');
+    AppCommon.select(`[data-tab='${n}']`).classList.add('tab--active');
     AppCommon.select(`#panel-${n}`).style.display = 'block';
 }
 

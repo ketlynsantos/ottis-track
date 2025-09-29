@@ -9,51 +9,51 @@
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="nav">
-        <a class="brand" href="/index.html">
+        <a class="nav__brand" href="/index.html">
           <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
         </a>
-        <nav class="pillnav">
-          <a href="/index.html">Home</a>
-          <a href="#">Dashboard</a>
-          <a href="projects.html">Projetos</a>
-          <a href="client-portal.html?id=BR-5510">Portal do Cliente</a>
+        <nav class="nav__menu">
+          <a href="/index.html" class="nav__item">Home</a>
+          <a href="#" class="nav__item">Dashboard</a>
+          <a href="projects.html" class="nav__item">Projetos</a>
+          <a href="client-portal.html?id=BR-5510" class="nav__item">Portal do Cliente</a>
         </nav>
-        <div class="search"><input placeholder="Buscar projeto..." /></div>
+        <div class="nav__search"><input placeholder="Buscar projeto..." /></div>
       </div>
     </header>
-    <div class="container">
+    <div class="dashboard container">
       <div class="filters">
-        <div class="pill">
-          <label class="small">País</label>
-          <select>
+        <div class="filters__item">
+          <label class="filters__label">País</label>
+          <select class="filters__select">
             <option>Todos</option>
             <option>Brasil</option>
             <option>Chile</option>
             <option>Argentina</option>
           </select>
         </div>
-        <div class="pill">
-          <label class="small">Etapa</label>
-          <select>
+        <div class="filters__item">
+          <label class="filters__label">Etapa</label>
+          <select class="filters__select">
             <option>Todas</option>
             <option>Fabricação</option>
             <option>Instalação</option>
             <option>Testes</option>
           </select>
         </div>
-        <div class="pill">
-          <label class="small">Período</label>
-          <select>
+        <div class="filters__item">
+          <label class="filters__label">Período</label>
+          <select class="filters__select">
             <option>Últimos 90 dias</option>
             <option>Últimos 30 dias</option>
           </select>
         </div>
       </div>
       <div class="kpi-strip" id="kpis"></div>
-      <div class="card table-wrap">
-        <table class="table">
+      <div class="dashboard__table card table-wrap">
+        <table class="dashboard__table-content table">
           <thead>
             <tr>
               <th>Projeto</th>

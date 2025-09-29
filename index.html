@@ -9,51 +9,51 @@
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="nav">
-        <a class="brand" href="/index.html">
+        <a class="nav__logotipo" href="/index.html">
           <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
         </a>
-        <nav class="pillnav">
-          <a href="#">Home</a>
-          <a href="/pages/dashboard.html">Dashboard</a>
-          <a href="/pages/projects.html">Projetos</a>
-          <a href="/pages/client-portal.html?id=BR-5510">Portal do Cliente</a>
+        <nav class="nav__menu">
+          <a href="#" class="nav__item">Home</a>
+          <a href="/pages/dashboard.html" class="nav__item">Dashboard</a>
+          <a href="/pages/projects.html" class="nav__item">Projetos</a>
+          <a href="/pages/client-portal.html?id=BR-5510" class="nav__item">Portal do Cliente</a>
         </nav>
-        <div class="search"><input placeholder="Buscar..." /></div>
+        <div class="nav__search"><input placeholder="Buscar..." /></div>
       </div>
     </header>
 
-    <section class="home-hero">
-      <div class="hero-card">
-        <h1 class="hero-title">OTIS-TRACK</h1>
-        <p class="hero-sub">
+    <section class="hero hero--home">
+      <div class="hero__card">
+        <h1 class="hero__title">OTIS-TRACK</h1>
+        <p class="hero__subtitle">
           Plataforma para gestão de instalações de elevadores na América Latina.
         </p>
-        <div class="vprops">
-          <div class="item">
-            <div class="dot"></div>
+        <div class="hero__features">
+          <div class="hero__feature">
+            <div class="hero__dot"></div>
             <div><strong>Previsibilidade e controle</strong> de ponta a ponta.</div>
           </div>
-          <div class="item">
-            <div class="dot"></div>
+          <div class="hero__feature">
+            <div class="hero__dot"></div>
             <div>
               <strong>Menos atrasos e retrabalho</strong> com processos e visibilidade unificados.
             </div>
           </div>
-          <div class="item">
-            <div class="dot"></div>
+          <div class="hero__feature">
+            <div class="hero__dot"></div>
             <div>
               <strong>Transparência para o cliente</strong> e melhoria contínua via feedback/NPS.
             </div>
           </div>
         </div>
-        <div class="hero-cta">
-          <a class="btn primary" href="/pages/dashboard.html">Ir para o Dashboard</a>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="/pages/dashboard.html">Ir para o Dashboard</a>
           <a class="btn" href="/pages/projects.html">Ver Projetos</a>
           <a class="btn" href="/pages/client-portal.html?id=BR-5510">Portal do Cliente</a>
         </div>
-        <div class="hero-note">
+        <div class="hero__note">
           Protótipo acadêmico — Trabalho de faculdade da FIAP (Challenge 2025).
         </div>
       </div>

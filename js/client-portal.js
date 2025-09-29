@@ -24,9 +24,9 @@ function npsDistribution(feedbacks) {
 }
 
 function npsCategory(nps) {
-    if (nps >= 9) return ['Promotor', 'pro'];
-    if (nps <= 6) return ['Detrator', 'det'];
-    return ['Neutro', 'neu'];
+    if (nps >= 9) return ['Promotor', 'promoter'];
+    if (nps <= 6) return ['Detrator', 'detractor'];
+    return ['Neutro', 'neutral'];
 }
 
 function renderFeedbackDashboard() {
@@ -64,23 +64,31 @@ function renderFeedbackDashboard() {
         }
 
         // KPIs
-        AppCommon.select('#kpi-nps .val').textContent = calcNpsPercent(feedbacks) + '%';
-        AppCommon.select('#kpi-csat .val').textContent = avgCsatScore(feedbacks);
-        AppCommon.select('#kpi-total .val').textContent = feedbacks.length;
+        AppCommon.select('#kpi-nps .kpis__value').textContent = calcNpsPercent(feedbacks) + '%';
+        AppCommon.select('#kpi-csat .kpis__value').textContent = avgCsatScore(feedbacks);
+        AppCommon.select('#kpi-total .kpis__value').textContent = feedbacks.length;
         const promoters = feedbacks.filter((item) => item.nps >= 9).length;
         const detractors = feedbacks.filter((item) => item.nps <= 6).length;
-        AppCommon.select('#kpi-split .val').textContent = `${promoters}↑ / ${detractors}↓`;
+        AppCommon.select('#kpi-split .kpis__value').textContent = `${promoters}↑ / ${detractors}↓`;
 
         // Bars
         const npsCounts = npsDistribution(feedbacks);
         const max = Math.max(1, ...npsCounts);
         const bars = npsCounts
             .map((count, score) => {
-                let category = 'neu';
-                if (score <= 6) category = 'det';
-                if (score >= 9) category = 'pro';
+                let category = 'neutral';
+                if (score <= 6) category = 'detractor';
+                if (score >= 9) category = 'promoter';
+
                 const height = Math.round((count / max) * 100);
-                return `<div class='bar' data-t='${category}' title='${score}: ${count}' style='height:${height}%' ></div>`;
+
+                return `
+                    <div
+                        class='nps-chart__bar nps-chart__bar--${category}'
+                        title='${score}: ${count}'
+                        style='height:${height}%'
+                    ></div>
+                `;
             })
             .join('');
         AppCommon.select('#bar-container').innerHTML = bars;
@@ -92,16 +100,22 @@ function renderFeedbackDashboard() {
             .map((item) => {
                 const [categoryLabel, categoryClass] = npsCategory(item.nps);
                 return `
-                    <div class="comment">
-                        <div class="meta">
-                            <span class="tag ${categoryClass}">${categoryLabel}</span>
-                            <span>${item.date}</span>
-                            <span>•</span>
-                            <span>${item.project} — ${item.city}/${item.country}</span>
-                            <span>•</span>
-                            <span>NPS ${item.nps}, CSAT ${item.csat}</span>
+                    <div class="feedback__comment">
+                        <div class="feedback__comment-meta">
+                            <span class="feedback__comment-tag feedback__comment-tag--${categoryClass}">
+                                ${categoryLabel}
+                            </span>
+                            <span class="feedback__comment-date">${item.date}</span>
+                            <span class="feedback__comment-separator">•</span>
+                            <span class="feedback__comment-project">
+                                ${item.project} — ${item.city}/${item.country}
+                            </span>
+                            <span class="feedback__comment-separator">•</span>
+                            <span class="feedback__comment-nps">
+                                NPS ${item.nps}, CSAT ${item.csat}
+                            </span>
                         </div>
-                        <div class="body">${item.comment}</div>
+                        <div class="feedback__comment-body">${item.comment}</div>
                     </div>
                 `;
             })

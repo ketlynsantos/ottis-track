@@ -8,23 +8,23 @@
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="nav">
-        <a class="brand" href="/index.html">
+        <a class="nav__brand" href="/index.html">
           <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
         </a>
-        <nav class="pillnav">
-          <a href="/index.html">Home</a>
-          <a href="dashboard.html">Dashboard</a>
-          <a href="#">Projetos</a>
-          <a href="client-portal.html?id=BR-5510">Portal do Cliente</a>
+        <nav class="nav__menu">
+          <a href="/index.html" class="nav__item">Home</a>
+          <a href="dashboard.html" class="nav__item">Dashboard</a>
+          <a href="#" class="nav__item">Projetos</a>
+          <a href="client-portal.html?id=BR-5510" class="nav__item">Portal do Cliente</a>
         </nav>
-        <div class="search"><input placeholder="Buscar projeto..." /></div>
+        <div class="nav__search"><input placeholder="Buscar projeto..." /></div>
       </div>
     </header>
     <div class="container">
       <h2>Projetos</h2>
-      <div class="card">
+      <div class="card table-wrap">
         <table class="table">
           <thead>
             <tr>

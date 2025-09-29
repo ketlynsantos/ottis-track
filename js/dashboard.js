@@ -9,28 +9,28 @@ function renderKPIs(container, projects) {
     const avgFPY = projects.reduce((sum, p) => sum + p.fpy, 0) / projects.length;
 
     container.innerHTML = `
-        <div class="card kpi">
+        <div class="kpi">
             <h3>Marcos no prazo</h3>
-            <div class="value">${AppCommon.formatPercent(onTime)}</div>
-            <div class="delta">média geral</div>
+            <div class="kpi__value">${AppCommon.formatPercent(onTime)}</div>
+            <div class="kpi__delta">média geral</div>
         </div>
 
-        <div class="card kpi">
+        <div class="kpi">
             <h3>Lead Time Médio</h3>
-            <div class="value">${avgLeadTime} dias</div>
-            <div class="delta">pedido → entrega</div>
+            <div class="kpi__value">${avgLeadTime} dias</div>
+            <div class="kpi__delta">pedido → entrega</div>
         </div>
 
-        <div class="card kpi">
+        <div class="kpi">
             <h3>Variação de custo</h3>
-            <div class="value">${(avgCostVariance * 100).toFixed(1)}%</div>
-            <div class="delta">orçado × realizado</div>
+            <div class="kpi__value">${(avgCostVariance * 100).toFixed(1)}%</div>
+            <div class="kpi__delta">orçado × realizado</div>
         </div>
 
-        <div class="card kpi">
+        <div class="kpi">
             <h3>Primeiro passe (FPY)</h3>
-            <div class="value">${AppCommon.formatPercent(avgFPY)}</div>
-            <div class="delta">sem retrabalho</div>
+            <div class="kpi__value">${AppCommon.formatPercent(avgFPY)}</div>
+            <div class="kpi__delta">sem retrabalho</div>
         </div>
     `;
 }

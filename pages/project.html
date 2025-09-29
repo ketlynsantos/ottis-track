@@ -8,47 +8,47 @@
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="nav">
-        <a class="brand" href="/index.html">
+        <a class="nav__brand" href="/index.html">
           <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
         </a>
-        <nav class="pillnav">
-          <a href="/index.html">Home</a>
-          <a href="dashboard.html">Dashboard</a>
-          <a href="projects.html">Projetos</a>
-          <a href="client-portal.html">Portal do Cliente</a>
+        <nav class="nav__menu">
+          <a href="/index.html" class="nav__item">Home</a>
+          <a href="dashboard.html" class="nav__item">Dashboard</a>
+          <a href="projects.html" class="nav__item">Projetos</a>
+          <a href="client-portal.html" class="nav__item">Portal do Cliente</a>
         </nav>
-        <div class="search"><input placeholder="Buscar no projeto..." /></div>
+        <div class="nav__search"><input placeholder="Buscar no projeto..." /></div>
       </div>
     </header>
     <div class="container" id="project">
       <div class="two-col">
-        <div>
-          <h2 id="p-title">Projeto</h2>
-          <div style="margin: 8px 0 16px 0">
+        <div class="project__main">
+          <h2 class="project__title" id="p-title">Projeto</h2>
+          <div class="project__status" style="margin: 8px 0 16px 0">
             <span class="badge" id="p-stage">Status</span>
           </div>
           <div class="kpi-strip">
-            <div class="card kpi">
+            <div class="kpi">
               <h3>No prazo</h3>
-              <div class="value" id="p-ot">—</div>
+              <div class="kpi__value" id="p-ot">—</div>
             </div>
-            <div class="card kpi">
+            <div class="kpi">
               <h3>Tempo de ciclo</h3>
-              <div class="value" id="p-lt">—</div>
+              <div class="kpi__value" id="p-lt">—</div>
             </div>
-            <div class="card kpi">
+            <div class="kpi">
               <h3>Variação de custo</h3>
-              <div class="value" id="p-cv">—</div>
+              <div class="kpi__value" id="p-cv">—</div>
             </div>
-            <div class="card kpi">
+            <div class="kpi">
               <h3>Primeiro passe (FPY)</h3>
-              <div class="value" id="p-fpy">—</div>
+              <div class="kpi__value" id="p-fpy">—</div>
             </div>
           </div>
           <div class="tabs" role="tablist">
-            <button class="tab active" data-tab="geral" onclick="AppProject.tabTo('geral')">
+            <button class="tab tab--active" data-tab="geral" onclick="AppProject.tabTo('geral')">
               Visão Geral
             </button>
             <button class="tab" data-tab="marcos" onclick="AppProject.tabTo('marcos')">Marcos</button>
@@ -83,7 +83,7 @@
           <div id="panel-qualidade" class="tabpanel" style="display: none">
             <div id="quality" class="grid"></div>
             <div style="margin-top: 8px">
-              <button class="btn primary" onclick="AppProject.openModal()">+ Nova NC</button>
+              <button class="btn btn--primary" onclick="AppProject.openModal()">+ Nova NC</button>
             </div>
           </div>
           <div id="panel-anexos" class="tabpanel" style="display: none">
@@ -94,18 +94,18 @@
           <div class="card">
             <strong>Filtros rápidos</strong>
             <div class="filters">
-              <div class="pill">
-                <label class="small">País</label>
-                <select>
+              <div class="filters__item">
+                <label class="filters__label">País</label>
+                <select class="filters__select">
                   <option>Todos</option>
                   <option>Brasil</option>
                   <option>Chile</option>
                   <option>Argentina</option>
                 </select>
               </div>
-              <div class="pill">
-                <label class="small">Etapa</label>
-                <select>
+              <div class="filters__item">
+                <label class="filters__label">Etapa</label>
+                <select class="filters__select">
                   <option>Todas</option>
                   <option>Fabricação</option>
                   <option>Instalação</option>
@@ -113,7 +113,7 @@
                 </select>
               </div>
             </div>
-            <a class="btn block" href="projects.html">Voltar à lista</a>
+            <a class="btn btn--block" href="projects.html">Voltar à lista</a>
           </div>
           <div class="card">
             <strong>Portal do Cliente</strong>
@@ -123,14 +123,17 @@
         </aside>
       </div>
     </div>
-    <dialog id="nc-dialog" role="dialog" aria-labelledby="nc-title">
-      <div class="modal-header">
-        <h3 id="nc-title">Nova Não Conformidade</h3>
+    <dialog id="nc-dialog" role="dialog" aria-labelledby="nc-title" class="modal">
+      <div class="modal__header">
+        <h3 id="nc-title" class="modal__title">Nova Não Conformidade</h3>
       </div>
-      <div class="modal-body">
+      <div class="modal__body">
         <form id="nc-form" onsubmit="event.preventDefault(); AppProject.closeModal();">
-          <div class="field"><label>Título*</label><input required type="text" /></div>
-          <div class="field">
+          <div class="modal__field">
+            <label>Título*</label>
+            <input required type="text" />
+          </div>
+          <div class="modal__field">
             <label>Tipo</label>
             <select>
               <option>Processo</option>
@@ -138,7 +141,7 @@
               <option>Execução</option>
             </select>
           </div>
-          <div class="field">
+          <div class="modal__field">
             <label>Gravidade</label>
             <select>
               <option>Baixa</option>
@@ -146,12 +149,12 @@
               <option>Alta</option>
             </select>
           </div>
-          <div class="field"><label>Descrição</label><textarea></textarea></div>
-          <div class="field"><label>Responsável</label><input type="text" /></div>
-          <div class="field"><label>Data limite</label><input type="date" /></div>
-          <div class="actions">
+          <div class="modal__field"><label>Descrição</label><textarea></textarea></div>
+          <div class="modal__field"><label>Responsável</label><input type="text" /></div>
+          <div class="modal__field"><label>Data limite</label><input type="date" /></div>
+          <div class="modal__actions">
             <button class="btn" type="button" onclick="AppProject.closeModal()">Cancelar</button>
-            <button class="btn primary" type="submit">Salvar</button>
+            <button class="btn btn--primary" type="submit">Salvar</button>
           </div>
         </form>
       </div>
