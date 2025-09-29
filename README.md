@@ -1,6 +1,6 @@
-![OTIS-TRACK Logo](/img/logo-readme.png) {
-  style="display: block; margin: 0 auto"
-}
+<p align="center">
+  <img src="/img/logo-readme.png" alt="OTIS-TRACK Logo" width="200"/>
+</p>
 
 # OTIS-TRACK
 
