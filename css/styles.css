@@ -284,9 +284,10 @@ h1 {
   border-top-right-radius: 12px;
   background: #fff;
   font-weight: 700;
+  cursor: pointer;
 }
 
-.tab.active {
+.tab--active {
   background: #f0f6ff;
   border-color: #cfe1ff;
   color: var(--primary);
@@ -759,6 +760,8 @@ dialog .modal__actions {
 
 .filters__select {
   border: none;
+  outline: none;
   background: transparent;
   font-size: 14px;
+  cursor: pointer;
 }
