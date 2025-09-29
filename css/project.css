@@ -1,0 +1,73 @@
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.tab--active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.tabpanel {
+  margin-top: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.modal__header h3 {
+  margin: 0;
+}
+
+.modal__field {
+  margin-bottom: 10px;
+}
+
+.modal__label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.modal__field input,
+.modal__field select,
+.modal__field textarea {
+  width: 100%;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.modal__field textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}

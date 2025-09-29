@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OTIS-TRACK — Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a class="nav__brand" href="/index.html">
+          <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
+        </a>
+        <nav class="nav__menu">
+          <a href="/index.html" class="nav__item">Home</a>
+          <a href="#" class="nav__item">Dashboard</a>
+          <a href="projects.html" class="nav__item">Projetos</a>
+          <a href="client-portal.html?id=BR-5510" class="nav__item">Portal do Cliente</a>
+        </nav>
+        <div class="nav__search"><input placeholder="Buscar projeto..." /></div>
+      </div>
+    </header>
+    <div class="dashboard container">
+      <div class="filters">
+        <div class="filters__item">
+          <label class="filters__label">País</label>
+          <select class="filters__select">
+            <option>Todos</option>
+            <option>Brasil</option>
+            <option>Chile</option>
+            <option>Argentina</option>
+          </select>
+        </div>
+        <div class="filters__item">
+          <label class="filters__label">Etapa</label>
+          <select class="filters__select">
+            <option>Todas</option>
+            <option>Fabricação</option>
+            <option>Instalação</option>
+            <option>Testes</option>
+          </select>
+        </div>
+        <div class="filters__item">
+          <label class="filters__label">Período</label>
+          <select class="filters__select">
+            <option>Últimos 90 dias</option>
+            <option>Últimos 30 dias</option>
+          </select>
+        </div>
+      </div>
+      <div class="kpi-strip" id="kpis"></div>
+      <div class="dashboard__table card table-wrap">
+        <table class="dashboard__table-content table">
+          <thead>
+            <tr>
+              <th>Projeto</th>
+              <th>País</th>
+              <th>Cliente</th>
+              <th>Etapa</th>
+              <th>No prazo</th>
+              <th>Tempo de ciclo</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="toast"></div>
+    <footer class="footer">
+      © 2025 OTIS-TRACK — MVP · Trabalho de faculdade da FIAP (Challenge 2025)
+    </footer>
+    <script src="/js/data.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

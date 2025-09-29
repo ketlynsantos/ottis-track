@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OTIS-TRACK — Feedback dos Clientes</title>
+    <link rel="stylesheet" href="/css/client-portal.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="portal">
+    <header class="header">
+      <div class="nav">
+        <a class="nav__brand" href="/index.html">
+          <img src="/img/otis-track-logo-horizontal.svg" alt="Logo Otis Track" />
+        </a>
+        <nav class="nav__menu">
+          <a href="/index.html" class="nav__item">Home</a>
+          <a href="dashboard.html" class="nav__item">Dashboard</a>
+          <a href="projects.html" class="nav__item">Projetos</a>
+          <a href="#" class="nav__item">Portal do Cliente</a>
+        </nav>
+        <div class="nav__search"><input placeholder="Buscar..." /></div>
+      </div>
+    </header>
+
+    <div class="feedback container">
+      <div class="hero" style="padding-top: 20px; padding-bottom: 10px">
+        <div class="hero__card">
+          <h1 class="hero__title" style="font-size: 28px; line-height: 34px">
+            Feedback dos Clientes
+          </h1>
+          <p class="hero__subtitle">Visão consolidada de NPS, satisfação e comentários recebidos.</p>
+          <div class="filters">
+            <button class="btn ghost sm" id="fb-export" type="button">Exportar CSV</button>
+            <div class="filters__item">
+              <label class="filters__label">País</label>
+              <select id="fb-country" class="filters__select">
+                <option>Todos</option>
+              </select>
+            </div>
+            <div class="filters__item">
+              <label class="filters__label">Projeto</label>
+              <select id="fb-project" class="filters__select">
+                <option>Todos</option>
+              </select>
+            </div>
+            <div class="filters__item">
+              <label class="filters__label">Período</label>
+              <select id="fb-period" class="filters__select">
+                <option value="30">Últimos 30 dias</option>
+                <option value="90" selected>Últimos 90 dias</option>
+                <option value="365">Último ano</option>
+                <option value="all">Tudo</option>
+              </select>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpis__item" id="kpi-nps">
+              <h4 class="kpis__title">NPS</h4>
+              <div class="kpis__value">—</div>
+            </div>
+            <div class="kpis__item" id="kpi-csat">
+              <h4 class="kpis__title">CSAT médio (1–5)</h4>
+              <div class="kpis__value">—</div>
+            </div>
+            <div class="kpis__item" id="kpi-total">
+              <h4 class="kpis__title">Respostas</h4>
+              <div class="kpis__value">—</div>
+            </div>
+            <div class="kpis__item" id="kpi-split">
+              <h4 class="kpis__title">Promotores / Detratores</h4>
+              <div class="kpis__value">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback__grid">
+        <div>
+          <div class="feedback__chart-card">
+            <strong>Distribuição de NPS (0–10)</strong>
+            <div id="bar-container" class="feedback__chart"></div>
+            <div id="number-nps" class="feedback__axis"></div> <!-- Range no js -->
+          </div>
+          <div class="feedback__card card" style="margin-top: 16px">
+            <strong>Comentários Recentes</strong>
+            <div id="comments" class="feedback__comments" style="margin-top: 8px"></div>
+          </div>
+        </div>
+        <div class="feedback__sidebar">
+          <div class="card">
+            <strong>Notas</strong>
+            <p class="feedback__note">Promotores: NPS 9–10 · Neutros: 7–8 · Detratores: 0–6.</p>
+            <p class="feedback__note">Este painel usa dados de exemplo para demonstração.</p>
+          </div>
+          <div class="card">
+            <strong>Próximos passos</strong>
+            <ul class="feedback__list">
+              <li>Exportar CSV</li>
+              <li>Integração API para salvar feedbacks reais</li>
+              <li>Análise de sentimento automática</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast"></div>
+    <footer class="footer">
+      © 2025 OTIS-TRACK — MVP · Trabalho de faculdade da FIAP (Challenge 2025)
+    </footer>
+    <script src="/js/data.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/client-portal.js"></script>
+  </body>
+</html>

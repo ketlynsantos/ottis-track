@@ -1,0 +1,35 @@
+.hero__features {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.hero__feature {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-top: 8px;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.hero__cta .btn--primary {
+  height: 44px;
+}
+
+.hero__note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
